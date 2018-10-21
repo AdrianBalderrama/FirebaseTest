@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Listas
+    </ion-title>
+    <ion-buttons end>
+      <button navPush="AddShoppingItemPage" ion-button>
+        <ion-icon name='add'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <h1>Welcome</h1>
+<!--<ion-list>
+  </ion-list-header>
+  <ion-item *ngFor="let item of shoppingList$|async">
+  <p>Id: {{item._place_id}}</p> <p>Name of the station: {{item.name}}</p> <p>Brand: {{item.brand}}</p>
+  </ion-item>
+</ion-list> -->
+
+
+<button ion-button outline full (click)= "getGeolocation()">Get the location</button>
+<p>Lat:</p>{{lat}}
+<p>Lng:</p>{{lng}}
+
+<!--FILTER DATA WITH THIS-->
+ <ion-item *ngFor="let item of shoppingList$|async" detail-push navPush="EditShoppingItemPage" 
+ [navParams]="{item:item}">    
+
+    <div *ngIf = "item._place_id" > 
+        {{item._place_id}}
+        {{item.brand}}
+        {{item.location?.x}}
+        {{item.location?.y}}
+      
+        
+    </div>
+  </ion-item> 
+
+
+  <!--
+  <ion-item *ngIf="item._place_id>23000">
+      <ion-item class="asd cardPardding" *ngFor="let item of shoppingList$|async">
+        <p>
+        {{item._place_id}}
+        </p>
+      </ion-item>
+  </ion-item>
+
+     -->
+     
+</ion-content>
