@@ -3,5 +3,9 @@ _place_id?: number;
 brand: string;
 category: string;
 name: string;
-
+location:{ address_street: string;
+    x: number,
+    y:number,
+   
+}
 }

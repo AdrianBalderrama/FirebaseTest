@@ -46,7 +46,7 @@ onOpenMap(){
     .snapshotChanges()  
     .map(
       changes =>{
-        //return for any changes a new object
+        //return for any changes a new object FIREBASE I BELIEVE
           return changes.map( c=>({
             key: c.payload.key, ... c.payload.val()
 
@@ -55,7 +55,7 @@ onOpenMap(){
       });
   
 
-
+//TESTING NAV
 
       //PLATFORM AND OPTIONS FOR GEOLOCATION
 this.platform.ready().then(() =>{
@@ -90,10 +90,6 @@ const filterbyId=(Gasolineras:Gasolinera[],range:{min: number, max:number})=> Ga
 
   /*PROBANDO CON FILTROS EN TYPESCRIPT END*/ 
 
-
-
-
-
   var options={
     timeout: 8000
   };
@@ -102,10 +98,20 @@ const filterbyId=(Gasolineras:Gasolinera[],range:{min: number, max:number})=> Ga
 this.geo.getCurrentPosition(options).then(post =>{
   this.lat= post.coords.latitude;
   this.lng= post.coords.longitude;
+  
 }) .catch(err=> console.log(err));
 })
 
+    }//CONSTRUCTOR CLOSE KEY
+
+    //onninit
+    /*ngOnInit(){
+      this.item.location.x=
     }
+    */
+
+
+
     //CURRENT LOCATION THROUGHT CLICK ON FUNCTION
 getGeolocation(){
  this.geo.getCurrentPosition().then(pos =>{

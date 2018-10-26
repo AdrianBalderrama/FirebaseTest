@@ -16,13 +16,18 @@
 <ion-content padding>
     <p>Marca:{{item?.brand}}</p>
     <p>Direccion:{{item.location?.address_street}} </p>
-    <p>Longitud:</p>{{item.location?.x}}
-    <p>Latitud:</p>{{item.location?.y}}
+    <!----<p>Testing reasons only delete...</p>
+    <p>Longitud del lugar:</p>{{item.location?.x}}
+    <p>Latitud del lugar:</p>{{item.location?.y}}
+    <p>Latitud del usuario:</p> {{lat}}
+    <p>Longitud del usuario:</p> {{lng}}  TESTING ONLY
+    <p>TESTING:</p> -->
    
     <agm-map
-    [latitude]="locx"
-    [longitude]="locy"
+    [latitude]="lat"
+    [longitude]="lng"
     [zoom]=16
    
-    >  </agm-map>
+    >   <agm-marker [latitude]="loclat"
+    [longitude]="loclng"></agm-marker> </agm-map>
 </ion-content>

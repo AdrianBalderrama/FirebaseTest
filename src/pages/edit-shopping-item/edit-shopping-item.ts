@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../models/item/item.model';
 import {} from '@agm/core'
 import {Location} from "../../models/locations";
+import { Geolocation } from '@ionic-native/geolocation'
  
 
 /**
@@ -24,27 +25,47 @@ import {Location} from "../../models/locations";
 
 export class EditShoppingItemPage {
   item:Item; //Create the item
-  locx:Number=19;
-  locy:Number=-92;
+  loclng:number;
+  loclat:number;
+  lat: number;
+  lng: number;
+
 
   locations:Location;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public geo:Geolocation,) {
      this.locations=this.navParams.get('locations');
   }
 
   ionViewWillLoad() {
     //Get the item to the Nav
-  this.item= this.navParams.get('item');  //Get the data from home of the item
+  this.item= this.navParams.get('item'); 
+  this.loclng=this.item.location.x;
+  this.loclat=this.item.location.y;
+   //Get the data from home of the item
   /*this.locx= this.navParams.get('item.location.x'); //TESTING TO TRY GET THE NUMBER OF THE HOME
   this.locy= this.navParams.get('item.location[0].y');*/
  
- 
+  //TESTING GEOLOCATION ON EDIT SHOPPING, REMOVE CONSTRUCTOR AND OTHER IF NECESSARY
+  this.geo.getCurrentPosition().then(post =>{
+    this.lat= post.coords.latitude;
+    this.lng= post.coords.longitude;
+  }) .catch(err=> console.log(err));
+  
+
+  //Testing
   console.log(this.navParams.get('item'));
-  console.log(this.navParams.get('locx'));
-  console.log(this.navParams.get('item.location[x]'));
-  }
+  console.log('loclng');
+  console.log('loclat');
+  
+ 
+  
 
-//setlocation equal this ONE
 
-}
+
+
+
+
+} //CLOSE KEY FOR ONVIEWWILLLOAD
+}//CLOSE KEY FOR EDITSHOPPINGCLASS
+//set location equal this one
 

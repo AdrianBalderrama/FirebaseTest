@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Listas
+      GasCuu
     </ion-title>
     <ion-buttons end>
       <button navPush="AddShoppingItemPage" ion-button>
@@ -12,7 +12,6 @@
 </ion-header>
 
 <ion-content padding>
- <h1>Welcome</h1>
 <!--<ion-list>
   </ion-list-header>
   <ion-item *ngFor="let item of shoppingList$|async">
@@ -21,19 +20,21 @@
 </ion-list> -->
 
 
-<button ion-button outline full (click)= "getGeolocation()">Get the location</button>
+<!--<button ion-button outline full (click)= "getGeolocation()">Get the location</button>
 <p>Lat:</p>{{lat}}
-<p>Lng:</p>{{lng}}
+<p>Lng:</p>{{lng}}  -->
 
 <!--FILTER DATA WITH THIS-->
  <ion-item *ngFor="let item of shoppingList$|async" detail-push navPush="EditShoppingItemPage" 
  [navParams]="{item:item}">    
 
     <div *ngIf = "item._place_id" > 
-        {{item._place_id}}
+      <!--  {{item._place_id}}-->
+        {{item.name}}
         {{item.brand}}
-        {{item.location?.x}}
-        {{item.location?.y}}
+       
+      
+        
       
         
     </div>
