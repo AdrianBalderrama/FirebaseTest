@@ -25,13 +25,15 @@
       <!--  {{item._place_id}}-->
       
       <!-- The ? is in case it does not exist, dont throw an error. -->
-                  <h1>{{item._place_id}}</h1>
-                 <h2>  {{item.brand}} </h2>
-      <p>  |Regular: ${{item.price?.regular}} </p>
-      <p>  |Premium: ${{item.price?.premium}} </p> 
+                  
+           <h2 style="color:black; text-align: center">  {{item.brand}} </h2>
+      <p style="color:green">  |Regular: $ {{item?.regular}} </p>
+      <p style="color:firebrick">  |Premium: $ {{item?.premium}} </p> 
+      <p style= "color:chocolate">  |Diesel: $ {{item?.diesel}} </p>
+      <p>Direccion: {{item.location.address_street}}</p>
     </div>
   </ion-item> 
-  <!--GEOFIRE-->
+  <!--GEOFIRE not working-->
   
 
   
