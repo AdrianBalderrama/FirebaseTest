@@ -8,4 +8,9 @@ location:{ address_street: string;
     y:number,
    
 }
+price:{
+    regular?: number;
+    premium?:number;
+    diesel?:number;
+}
 }

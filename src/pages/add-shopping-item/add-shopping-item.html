@@ -45,6 +45,22 @@
   <ion-input [(ngModel)]="item.location.y" placeholder="y"  type='number'></ion-input>
 </ion-item>
 
+<ion-item>
+  <ion-label>Regular $</ion-label>
+  <ion-input [(ngModel)]="item.price.regular" placeholder="$"  type='number'></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Premium $</ion-label>
+  <ion-input [(ngModel)]="item.price.premium" placeholder="$"  type='number'></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Diesel $</ion-label>
+  <ion-input [(ngModel)]="item.price.diesel" placeholder="$"  type='number'></ion-input>
+</ion-item>
+
+
 {{item|json}}
 <button ion-button block clear (click)="addItem(item)">Add</button>
 

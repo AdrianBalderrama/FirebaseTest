@@ -24,7 +24,8 @@ export class AddShoppingItemPage {
     brand: "",
    category:"", 
     name: "",
-    location:{address_street:"", x:undefined,y:undefined}
+    location:{address_street:"", x:undefined,y:undefined},
+    price: {regular:undefined,premium:undefined,diesel:undefined}
 
   }
 

@@ -4,17 +4,21 @@ import { ShoppingListService } from '../../services/shopping-list/shopping-list.
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 import { Item } from '../../models/item/item.model';
-import { snapshotChanges } from 'angularfire2/database';
+import { snapshotChanges, AngularFireAction } from 'angularfire2/database';
 import { Geolocation } from '@ionic-native/geolocation'
 import { AgmCoreModule } from '@agm/core';
 import {EditShoppingItemPage} from '../edit-shopping-item/edit-shopping-item'
 import {Location} from '../../models/locations'
+
 
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
+ 
+
 export class HomePage {
 
 
@@ -23,14 +27,16 @@ export class HomePage {
   location:{ lat: number, lng: number};
   lat:any;
   lng: any;
+//GEOFIRE
+   
 
-
-  //TUTO LOCATION
+  //TUTO LOCATION i think if i delete this nothing happens not sure tho,
  locations:Location={
    lats: 40.7624324,
    lngs: -73.9759827
 
  };
+ 
 onOpenMap(){
   const modal = this.modalCtrl.create(EditShoppingItemPage, {locations:this.locations})
 }
@@ -57,13 +63,17 @@ onOpenMap(){
 
 //TESTING NAV
 
+
+
+
+
       //PLATFORM AND OPTIONS FOR GEOLOCATION
 this.platform.ready().then(() =>{
 
    
 
 
-     /*PROBANDO CON FILTROS EN TYPESCRIPT*/ 
+     /*--------PROBANDO CON FILTROS EN TYPESCRIPT--------*/ 
 const minMax= {min:10, max:20 }
 
 interface Gasolinera{
@@ -90,11 +100,15 @@ const filterbyId=(Gasolineras:Gasolinera[],range:{min: number, max:number})=> Ga
 
   /*PROBANDO CON FILTROS EN TYPESCRIPT END*/ 
 
-  var options={
-    timeout: 8000
-  };
 
+ 
 //CURRENT LOCATION THRU INITIALIZATION
+
+var options={
+  timeout: 8000
+};
+
+
 this.geo.getCurrentPosition(options).then(post =>{
   this.lat= post.coords.latitude;
   this.lng= post.coords.longitude;
@@ -103,6 +117,9 @@ this.geo.getCurrentPosition(options).then(post =>{
 })
 
     }//CONSTRUCTOR CLOSE KEY
+
+
+
 
     //onninit
     /*ngOnInit(){
@@ -120,7 +137,7 @@ getGeolocation(){
         }).catch(err=> console.log(err));
  
     }
-    
+
 
 
   }

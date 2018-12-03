@@ -12,33 +12,29 @@
 </ion-header>
 
 <ion-content padding>
-<!--<ion-list>
-  </ion-list-header>
-  <ion-item *ngFor="let item of shoppingList$|async">
-  <p>Id: {{item._place_id}}</p> <p>Name of the station: {{item.name}}</p> <p>Brand: {{item.brand}}</p>
-  </ion-item>
-</ion-list> -->
-
 
 <!--<button ion-button outline full (click)= "getGeolocation()">Get the location</button>
 <p>Lat:</p>{{lat}}
 <p>Lng:</p>{{lng}}  -->
 
-<!--FILTER DATA WITH THIS-->
+
  <ion-item *ngFor="let item of shoppingList$|async" detail-push navPush="EditShoppingItemPage" 
  [navParams]="{item:item}">    
-
+    <!--FILTER DATA WITH THIS not reccomended tho-->
     <div *ngIf = "item._place_id" > 
       <!--  {{item._place_id}}-->
-        {{item.name}}
-        {{item.brand}}
-       
       
-        
-      
-        
+      <!-- The ? is in case it does not exist, dont throw an error. -->
+                  <h1>{{item._place_id}}</h1>
+                 <h2>  {{item.brand}} </h2>
+      <p>  |Regular: ${{item.price?.regular}} </p>
+      <p>  |Premium: ${{item.price?.premium}} </p> 
     </div>
   </ion-item> 
+  <!--GEOFIRE-->
+  
+
+  
 
 
   <!--

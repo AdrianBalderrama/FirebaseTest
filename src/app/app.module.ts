@@ -11,6 +11,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
 import { ShoppingListService } from '../services/shopping-list/shopping-list.service';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from '@agm/core';
+import { GeoService } from '../providers/geo/geo';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AgmCoreModule } from '@agm/core';
     StatusBar,
     SplashScreen,Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ShoppingListService
+    ShoppingListService,
+    GeoService
   ]
 })
 export class AppModule {}
