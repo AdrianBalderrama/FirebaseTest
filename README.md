@@ -16,3 +16,6 @@ Make work Angular Maps with the markers of Firebase.
 Integrate Geolocation to get the user location.
 
 --
+
+
+Due the lack of time the project will be paused and we will reconsider the use of another tech to finish the project.
